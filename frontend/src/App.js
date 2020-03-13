@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      processes : {}
+    };
 }
 
-export default App;
+  componentWillMount(){
+    fetch('/api/processes/')
+    .then((processes) => processes.json())
+    .then((processes) => this.setState({ processes }));
+  }
+
+
+  render() {
+    const p = this.state.processes
+
+    return (
+      <div>
+        {
+          Object.keys(p).map(process =>{
+            return(
+              <div> {p[process]['name']} {process} 
+              {
+              p[process]['children']?
+              p[process]['children'].map(child =>{
+                return(child['name'])
+              })
+               : null
+               }
+              </div>
+            )
+          })
+        }
+      </div>
+    )
+  }
+}
