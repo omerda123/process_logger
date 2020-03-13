@@ -13,7 +13,6 @@ class Processes:
 
     def normalize_data(self):
         for process in self.all_processes:
-            # print(process)
             self.process_view[process['pid']] = {
                 'name': process['name'],
                 'children': []
@@ -37,10 +36,3 @@ class Processes:
         return res + "".join(self.print_tree(self, p, indent + 1) for p in self.process_view['children'])
 
 
-processes = Processes()
-processes.init_data()
-p = processes.normalize_data()
-processes.print_processes()
-processes.print_normalized_data()
-print(p)
-# processes.print_tree(p)
