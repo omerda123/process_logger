@@ -1,10 +1,12 @@
 import React from 'react';
 
-export default function Child(props) {
+export default function Process(props) {
   return (
-    <div className="child">
+    <div className={props.class}>
       {props.name}
+      (
       {props.number}
+      )
     </div>
   );
 }

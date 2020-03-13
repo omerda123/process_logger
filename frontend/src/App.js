@@ -1,8 +1,15 @@
 /* eslint-disable react/jsx-filename-extension */
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
 import React, { Component } from 'react';
-import Parent from './components/Parent';
-import Child from './components/Child';
 import './App.css';
+import Menu from './components/Menu';
+import Content from './components/Content';
+import Logger from './components/Logger';
+import Risks from './components/Risks';
 
 export default class App extends Component {
   constructor() {
@@ -24,18 +31,21 @@ export default class App extends Component {
 
     return (
       <div>
-        {
-          Object.keys(p).map((process) => (
-            <div>
-              <Parent name={p[process].name} number={process} />
-              {
-              p[process].children
-                ? p[process].children.map((child) => (<Child name={child.name} number={child.pid} />))
-                : null
-               }
-            </div>
-          ))
-        }
+
+        <Router>
+          <Menu />
+          <Switch>
+            <Route exact path="/">
+              <Content processes={p} />
+            </Route>
+            <Route exact path="/logger">
+              <Logger />
+            </Route>
+            <Route exact path="/risks">
+              <Risks />
+            </Route>
+          </Switch>
+        </Router>
       </div>
     );
   }

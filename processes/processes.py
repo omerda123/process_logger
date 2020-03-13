@@ -22,6 +22,8 @@ class Processes:
             else:
                 if process['ppid'] in self.process_view:
                     self.process_view[process['ppid']]['children'].append(process)
+
+
         return self.process_view
 
     def print_processes(self):
@@ -36,3 +38,9 @@ class Processes:
         return res + "".join(self.print_tree(self, p, indent + 1) for p in self.process_view['children'])
 
 
+p = Processes()
+p.init_data()
+p.print_processes()
+tree = p.normalize_data()
+print(tree)
+print(p.roots)
