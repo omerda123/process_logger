@@ -8,7 +8,7 @@ class Processes:
         self.roots = []
 
     def init_data(self):
-        for proc in psutil.process_iter(['pid', 'ppid', 'name', 'username']):
+        for proc in psutil.process_iter(['pid', 'ppid', 'name']):
             self.all_processes.append(proc.info)
 
     def normalize_data(self):
@@ -23,6 +23,7 @@ class Processes:
             else:
                 if process['ppid'] in self.process_view:
                     self.process_view[process['ppid']]['children'].append(process)
+        return self.process_view
 
     def print_processes(self):
         print(self.all_processes)
@@ -38,7 +39,8 @@ class Processes:
 
 processes = Processes()
 processes.init_data()
-processes.normalize_data()
+p = processes.normalize_data()
 # processes.print_processes()
 # processes.print_normalized_data()
-processes.print_tree()
+# print(p)
+processes.print_tree(p)

@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="74c2a042-ce37-4759-bc89-1c9494c9cccd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/processes/aa.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/processes/processes.py" beforeDir="false" afterPath="$PROJECT_DIR$/processes/processes.py" afterDir="false" />
     </list>
@@ -110,7 +108,7 @@
       <option name="presentableId" value="Default" />
       <updated>1584085121656</updated>
       <workItem from="1584085248748" duration="2763000" />
-      <workItem from="1584088045368" duration="3453000" />
+      <workItem from="1584088045368" duration="4091000" />
     </task>
     <servers />
   </component>
@@ -118,25 +116,25 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1584091663398">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1584092273806">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1584091663398" />
-    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1584091663398">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1584092273806" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1584092273805">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1584091663398" />
-    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1584091663398">
+    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1584092273805" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1584092273805">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1584091663398" />
-    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1584091663398">
+    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1584092273805" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1584092273805">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1584091663398" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1584092273805" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/processes_logger$processes.coverage" NAME="processes Coverage Results" MODIFIED="1584087912648" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/processes" />
-    <SUITE FILE_PATH="coverage/Processes_logger$processes.coverage" NAME="processes Coverage Results" MODIFIED="1584091663389" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/processes" />
+    <SUITE FILE_PATH="coverage/Processes_logger$processes.coverage" NAME="processes Coverage Results" MODIFIED="1584092273798" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/processes" />
   </component>
 </project>
