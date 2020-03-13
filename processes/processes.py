@@ -4,7 +4,7 @@ import psutil
 class Processes:
     def __init__(self):
         self.all_processes = []
-        self.process_view = []
+        self.process_view = {}
         self.roots = []
 
     def init_data(self):
@@ -13,19 +13,16 @@ class Processes:
 
     def normalize_data(self):
         for process in self.all_processes:
-            print(process)
+            # print(process)
+            self.process_view[process['pid']] = {
+                'name': process['name'],
+                'children': []
+            }
             if process['ppid'] == 0:
                 self.roots.append(process['pid'])
-            self.process_view.append(
-                {
-                    process['pid']: {
-                        'name': process['name'],
-                        'children': []
-                    }
-                }
-            )
-            if process['ppid'] in self.process_view.keys():
-                self.process_view['ppid']['children'].append(process)
+            else:
+                if process['ppid'] in self.process_view:
+                    self.process_view[process['ppid']]['children'].append(process)
 
     def print_processes(self):
         print(self.all_processes)
@@ -34,13 +31,14 @@ class Processes:
         print(self.process_view)
         print(self.roots)
 
-    def print_tree(self, p, indent):
-        print(f"{'-' * indent} {p['name']}")
-        return self.print_tree()
+    def print_tree(self, p, indent=0):
+        res = '  ' * indent + '- ' + p['name'] + '\n'
+        return res + "".join(self.print_tree(self, p, indent + 1) for p in self.process_view['children'])
 
 
 processes = Processes()
 processes.init_data()
 processes.normalize_data()
-processes.print_processes()
-processes.print_normalized_data()
+# processes.print_processes()
+# processes.print_normalized_data()
+processes.print_tree()
