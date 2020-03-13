@@ -12,6 +12,7 @@ Endpoint security tool. detect processes run by unwanted processes.
 
 ## Prerequisuites
 * pyhton 3.7 or 3.8
+* postgreSQL
 
 ## Setup
 

@@ -1,6 +1,5 @@
 import psutil
 
-
 class Processes:
     def __init__(self):
         self.all_processes = []
