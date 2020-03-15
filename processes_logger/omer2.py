@@ -14,8 +14,8 @@ for p in data:
     else:
         process_by_parent_id[p['ppid']].append(p)
 
-# pprint(roots)
-# pprint(dict(process_by_parent_id))
+pprint(roots)
+pprint(dict(process_by_parent_id))
 
 def get_forest(nodes):
     return [{**n, 'children': get_forest(process_by_parent_id[n['pid']])} for n in nodes]

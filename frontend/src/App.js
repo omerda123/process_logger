@@ -15,23 +15,31 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      processes: {},
+      p: {},
       log: [],
     };
   }
 
   UNSAFE_componentWillMount() {
+    const urlencoded = new URLSearchParams();
+    urlencoded.append('mac_address', '4koL01COaoM8');
+    const requestOptions = {
+      method: 'POST',
+      body: urlencoded,
+      redirect: 'follow',
+    };
+
     Promise.all([
-      fetch('/api/processes/')
-        .then((processes) => processes.json()),
+      fetch('/api/processes_tree/', requestOptions)
+        .then((p) => p.json()),
       fetch('/api/get_log/')
         .then((log) => log.json()),
-    ]).then(([processes, log]) => { this.setState({ processes }); this.setState({ log }); });
+    ]).then(([p, log]) => { this.setState({ p }); this.setState({ log }); });
   }
 
 
   render() {
-    const { processes } = this.state;
+    const { p } = this.state;
     const { log } = this.state;
 
     return (
@@ -41,7 +49,7 @@ export default class App extends Component {
           <Menu />
           <Switch>
             <Route exact path="/">
-              <Content processes={processes} />
+              <Content processes={p} />
             </Route>
             <Route exact path="/logger">
               <Logger log={log} />

@@ -1,5 +1,6 @@
 import psutil
 
+
 class Processes:
     def __init__(self):
         self.all_processes = []
@@ -12,17 +13,21 @@ class Processes:
 
     def normalize_data(self):
         for process in self.all_processes:
-            self.process_view[process['pid']] = {
+            self.process_view[ process['pid']] = {
                 'name': process['name'],
                 'children': []
             }
-            if process['ppid'] == 0:
-                self.roots.append(process['pid'])
+            if process['ppid'] != 0:
+                self.roots.append((process['pid'], process['ppid']))
+        for root in self.roots:
+            print(self.process_view.get(root[1]))
+            if self.process_view.get(root[1]):
+                self.process_view[root[1]]['children'].append(self.process_view[root[0]])
             else:
-                if process['ppid'] in self.process_view:
-                    self.process_view[process['ppid']]['children'].append(process)
-
-
+                self.process_view[root[1]] = {
+                    'name': 'unknown father',
+                    'children': []
+                }
         return self.process_view
 
     def print_processes(self):
@@ -41,5 +46,4 @@ p = Processes()
 p.init_data()
 p.print_processes()
 tree = p.normalize_data()
-print(tree)
-print(p.roots)
+

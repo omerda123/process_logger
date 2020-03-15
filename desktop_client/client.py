@@ -22,17 +22,18 @@ SERVER = "http://localhost:8000/api/insert_process/"
 mac_address = (':'.join(['{:02x}'.format((uuid.getnode() >> ele) & 0xff)
                          for ele in range(0, 8 * 6, 8)][::-1]))
 
-print(mac_address)
-
 
 def send_data():
     threading.Timer(900.0, send_data).start()
     p = Processes()
     processes = p.init_data()
     print(processes)
-    data = {'mac_address': mac_address, 'process_list': json.dumps(processes)}
+    data = {'mac_address': mac_address, 'processes': json.dumps(processes)}
     res = requests.post(SERVER, data=data)
     print(res.text)
+    # for process in processes:
+    #     data = {'mac_address': mac_address, 'chunk_id': chunk, 'pid': process['pid'], 'name': process['name'],
+    #             'ppid': process['ppid'], 'isValid': True}
 
 
 send_data()
