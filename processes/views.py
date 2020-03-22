@@ -75,4 +75,4 @@ def get_tree_data(request):
 
 def get_all_records(request):
     qs = list(models.Process.objects.values())
-    return JsonResponse(qs[20::-1], safe=False)
+    return JsonResponse(qs[::-1], safe=False)
